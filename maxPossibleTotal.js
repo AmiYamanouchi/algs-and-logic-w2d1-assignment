@@ -3,13 +3,29 @@
 
 const maxTotal = function(arr) {
 
+    let numBigger = arr.sort(function(a,b){
+        return (a < b ? 1 : -1);
+      })
+
+    let sumNum = 0;
+
+    const filtered = numBigger.filter(element => element > numBigger[5])
+
+
+    for(let i = 0; i < filtered.length; i++) {
+        sumNum += filtered[i]
+    }
+
+    return sumNum
+    
+
 }
 
-// maxTotal([1, 1, 0, 1, 3, 10, 10, 10, 10, 1]) 
+console.log(maxTotal([1, 1, 0, 1, 3, 10, 10, 10, 10, 1]) )
 //➞ 43
 
-//maxTotal([0, 0, 0, 0, 0, 0, 0, 0, 0, 100]) 
+console.log(maxTotal([0, 0, 0, 0, 0, 0, 0, 0, 0, 100]) )
 //➞ 100
 
-//maxTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) 
+console.log(maxTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) )
 //➞ 40
